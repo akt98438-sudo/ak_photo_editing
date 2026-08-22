@@ -1,1 +1,345 @@
-# ak_photo_editing
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AK Photo Editing</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+    }
+
+    header {
+      padding: 20px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111827;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #111827, #1e293b);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #38bdf8;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 25px;
+      background: #38bdf8;
+      color: #06111f;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .section {
+      padding: 70px 7%;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 34px;
+      margin-bottom: 35px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px 20px;
+      border-radius: 18px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+    }
+
+    .card h3 {
+      margin: 15px 0;
+      color: #38bdf8;
+    }
+
+    .upload-box {
+      max-width: 500px;
+      margin: auto;
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 15px;
+      background: #0f172a;
+      color: white;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    #preview {
+      max-width: 100%;
+      max-height: 350px;
+      border-radius: 15px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .price {
+      font-size: 30px;
+      color: #38bdf8;
+      margin: 15px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #111827;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">📸 AK Photo Editing</div>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#upload">Upload</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <div>
+    <h1>Make Your Photos <span>Awesome</span></h1>
+
+    <p>
+      Professional photo editing, background change,
+      clothes design & photo enhancement.
+    </p>
+
+    <a href="#upload" class="btn">Upload Photo</a>
+    <a href="#services" class="btn">Our Services</a>
+  </div>
+</section>
+
+
+<section class="section" id="services">
+
+  <h2>Our Services</h2>
+
+  <div class="services">
+
+    <div class="card">
+      <div style="font-size:40px;">✨</div>
+      <h3>Photo Enhancement</h3>
+      <p>Photo ko clear, bright aur attractive banaye.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">🌄</div>
+      <h3>Background Change</h3>
+      <p>Background remove ya new background add karein.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">👕</div>
+      <h3>Clothes Design</h3>
+      <p>Photo mein stylish clothes aur designs add karein.</p>
+    </div>
+
+    <div class="card">
+      <div style="font-size:40px;">🎨</div>
+      <h3>Creative Editing</h3>
+      <p>Cinematic aur creative photo editing.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section" id="upload">
+
+  <h2>Upload Your Photo</h2>
+
+  <div class="upload-box">
+
+    <p>Apni photo select karein:</p>
+
+    <input
+      type="file"
+      id="photoInput"
+      accept="image/*"
+    >
+
+    <img id="preview" alt="Photo Preview">
+
+    <br>
+
+    <button class="btn" onclick="sendWhatsApp()">
+      WhatsApp Par Send Karein
+    </button>
+
+  </div>
+
+</section>
+
+
+<section class="section" id="pricing">
+
+  <h2>Simple Pricing</h2>
+
+  <div class="services">
+
+    <div class="card">
+      <h3>Basic Edit</h3>
+      <div class="price">₹49</div>
+      <p>Basic enhancement & color correction</p>
+    </div>
+
+    <div class="card">
+      <h3>Premium Edit</h3>
+      <div class="price">₹99</div>
+      <p>Background + advanced editing</p>
+    </div>
+
+    <div class="card">
+      <h3>Creative Edit</h3>
+      <div class="price">₹199</div>
+      <p>Professional creative/cinematic edit</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+
+  <h2>Contact</h2>
+
+  <p style="margin-bottom:20px;">
+    Photo editing ke liye WhatsApp par contact karein.
+  </p>
+
+  <!-- Yahan apna WhatsApp number dalein -->
+  <a
+    class="btn"
+    href="https://wa.me/91XXXXXXXXXX"
+    target="_blank">
+    💬 WhatsApp
+  </a>
+
+</section>
+
+
+<footer>
+  © 2026 AK Photo Editing — All Rights Reserved
+</footer>
+
+
+<script>
+
+  const input = document.getElementById("photoInput");
+  const preview = document.getElementById("preview");
+
+  input.addEventListener("change", function() {
+
+    const file = this.files[0];
+
+    if (file) {
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = "block";
+    }
+
+  });
+
+
+  function sendWhatsApp() {
+
+    const file = input.files[0];
+
+    if (!file) {
+      alert("Pehle photo select karein.");
+      return;
+    }
+
+    const phone = "91XXXXXXXXXX";
+
+    const message =
+      "Hello AK Photo Editing! Mujhe apni photo edit karwani hai.";
+
+    const url =
+      "https://wa.me/" + phone +
+      "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+
+</script>
+
+</body>
+</html>
